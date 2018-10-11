@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>WingCloud</artifactId>
+        <groupId>top.wingcloud</groupId>
+        <version>v-1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>wc-client</artifactId>
+    <packaging>pom</packaging>
+    <description>翼云 业务服务</description>
+    <modules>
+        <module>wc-client-mail</module>
+        <module>wc-client-user</module>
+        <module>wc-client-search</module>
+        <module>wc-client-admin</module>
+    </modules>
+
+</project>

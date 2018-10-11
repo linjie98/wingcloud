@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wc-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wc-client/wc-client-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wc-client/wc-client-mail" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wc-client/wc-client-search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wc-client/wc-client-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wc-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wc-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wc-register" charset="UTF-8" />
+  </component>
+</project>
