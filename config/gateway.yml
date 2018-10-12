@@ -1,0 +1,34 @@
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+#端口
+server:
+  port: 8080
+spring:
+  #该配置文件中的配置，对应的服务名称是wc-gateway
+  application:
+    name: wc-gateway
+  profiles:
+    active: dev
+#服务网关配置
+zuul:
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
+  routes:
+    api-article:
+      path: /api/article/**
+      serviceId: article
+    api-comment:
+      path: /api/comment/**
+      serviceId: comment
+    api-index:
+      path: /api/index/**
+      serviceId: index
+    api-user:
+      path: /api/user/**
+      serviceId: user
