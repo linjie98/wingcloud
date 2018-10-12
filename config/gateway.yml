@@ -19,16 +19,16 @@ zuul:
   host:
     connect-timeout-millis: 60000
     socket-timeout-millis: 60000
-  routes:
-    api-article:
-      path: /api/article/**
-      serviceId: article
-    api-comment:
-      path: /api/comment/**
-      serviceId: comment
-    api-index:
-      path: /api/index/**
-      serviceId: index
-    api-user:
-      path: /api/user/**
-      serviceId: user
+#  routes:
+#    api-article:
+#      path: /api/article/**
+#      serviceId: article
+#    api-comment:
+#      path: /api/comment/**
+#      serviceId: comment
+#    api-index:
+#      path: /api/index/**
+#      serviceId: index
+#    api-user:
+#      path: /api/user/**
+#      serviceId: user
