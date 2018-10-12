@@ -11,7 +11,7 @@ server:
 spring:
   #该配置文件中的配置，对应的服务名称是wc-gateway
   application:
-    name: gateway
+    name: wc-gateway
   profiles:
     active: dev
 #服务网关配置
