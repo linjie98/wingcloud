@@ -23,6 +23,7 @@ zuul:
       api:
         path: /api/user
         serviceId: wc-client-user
+
 #  routes:
 #    api-article:
 #      path: /api/article/**
