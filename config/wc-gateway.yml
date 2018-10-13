@@ -19,6 +19,10 @@ zuul:
   host:
     connect-timeout-millis: 60000
     socket-timeout-millis: 60000
+    routes:
+      api:
+        path: /api/**
+        serviceId: wc-user
 #  routes:
 #    api-article:
 #      path: /api/article/**
