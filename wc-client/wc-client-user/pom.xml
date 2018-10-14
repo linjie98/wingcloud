@@ -11,5 +11,10 @@
 
     <artifactId>wc-client-user</artifactId>
     <description>翼云用户服务</description>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
 </project>
