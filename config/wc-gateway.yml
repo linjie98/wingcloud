@@ -21,7 +21,7 @@ zuul:
     socket-timeout-millis: 60000
     routes:
       api:
-        path: /api/user/**
+        path: /api/**
         serviceId: wc-client-user
 
 #  routes:
