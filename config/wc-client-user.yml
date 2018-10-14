@@ -3,5 +3,4 @@ server:
 spring:
   application:
     name: wc-client-user
-  profiles:
-    active: dev
+
