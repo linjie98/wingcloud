@@ -12,6 +12,7 @@
     <artifactId>wc-client</artifactId>
     <packaging>pom</packaging>
     <description>翼云 业务服务</description>
+
     <modules>
         <module>wc-client-mail</module>
         <module>wc-client-user</module>
