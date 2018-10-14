@@ -1,0 +1,19 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+spring:
+  application:
+    name: wc-gateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        #服务id来配置服务器
+        serviceId: wc-config
+      label: master
+      #与config中哪些配置文件关联
+      name: wc-gateway,wc-register
+  profiles:
+    active: dev
+
