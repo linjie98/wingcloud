@@ -2,6 +2,6 @@ server:
   port: 8084
 spring:
   application:
-    name: wc-client-user
+    name: user
   profiles:
     active: dev
