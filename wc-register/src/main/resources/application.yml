@@ -1,0 +1,22 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: wc-register
+  profiles:
+    active: dev
+eureka:
+  server:
+    #开启自我保护
+    enable-self-preservation: true
+  instance:
+    #以IP地址注册
+    preferIpAddress: true
+    hostname: ${spring.cloud.client.ipAddress}
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+    nonSecurePort: ${server.port}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
