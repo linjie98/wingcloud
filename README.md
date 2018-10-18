@@ -1,4 +1,2 @@
 # WingCloud
-WingCloud System
-
-https://img.shields.io/github/release/Tencent/tinker.svg
+https://img.shields.io/badge/SpringCloud-Dalston.SR5-green.svg
