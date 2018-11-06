@@ -1,3 +1,4 @@
+#熔断机制
 hystrix:
   command:
     default:
@@ -5,9 +6,11 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 6000
+
+#负载均衡
 ribbon:
-  ConnectionTimeOut: 500
-  ReadTimeOut: 4000
+  ConnectionTimeout: 500
+  ReadTimeout: 4000
 #端口
 server:
   port: 8080
