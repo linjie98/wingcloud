@@ -6,8 +6,8 @@ hystrix:
           thread:
             timeoutInMilliseconds: 6000
 ribbon:
-  ConnectionTimeout: 500
-  ReadTimeout: 4000
+  ConnectionTimeOut: 500
+  ReadTimeOut: 4000
 #端口
 server:
   port: 8080
