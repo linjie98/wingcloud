@@ -5,12 +5,12 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 6000
+            timeoutInMilliseconds: 3000
 
 #负载均衡
 ribbon:
-  ConnectionTimeout: 500
-  ReadTimeout: 4000
+  ConnectionTimeout: 3000
+  ReadTimeout: 3000
 
 #端口
 server:
@@ -24,8 +24,8 @@ spring:
 #服务网关配置
 zuul:
   host:
-    connect-timeout-millis: 60000
-    socket-timeout-millis: 60000
+    connect-timeout-millis: 3000
+    socket-timeout-millis: 3000
   #路由规则
   routes:
     api:
