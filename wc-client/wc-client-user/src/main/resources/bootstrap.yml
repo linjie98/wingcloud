@@ -1,7 +1,7 @@
 spring:
   cloud:
     config:
-      name: wc-client-user,wc-register
+      name: wc-client-user,wc-register,wc-database,wc-redis
       label: master
       discovery:
         enabled: true
