@@ -23,7 +23,7 @@ spring:
       filter:
         stat:
           log-slow-sql: true
-          slow-sql-millis: 2000
+          slow-sql-millis: 20000
       web-stat-filter:
         enable: true
       stat-view-servlet:
