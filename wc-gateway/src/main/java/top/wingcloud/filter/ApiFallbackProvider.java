@@ -13,7 +13,7 @@ import java.io.InputStream;
 
 /**
  * @author: linjie
- * @description:错误拦截回显
+ * @description:错误拦截回显，熔断
  * @create: 2018/10/11 20:01
  */
 @Component
@@ -21,7 +21,9 @@ public class ApiFallbackProvider implements ZuulFallbackProvider{
 
     @Override
     public String getRoute() {
-        return "eurekaclient";
+        //设置熔断的服务名
+        //如果是所有服务则设置为*
+        return "wc-client-user";
     }
 
     @Override
@@ -39,7 +41,7 @@ public class ApiFallbackProvider implements ZuulFallbackProvider{
 
             @Override
             public String getStatusText() throws IOException {
-                return "{code:0,message:\"服务器异常！\"}";
+                return "{code:0,message:service error =_=}";
             }
 
             @Override
