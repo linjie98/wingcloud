@@ -33,11 +33,11 @@ zuul:
       serviceId: wc-client-user
       #防止网关转发请求后session失效
       sensitiveHeaders: "*"
-  routes:
-    api:
-      path: /api/search/**
-      serviceId: wc-client-search
-      sensitiveHeaders: "*"
+#  routes:
+#    api:
+#      path: /api/search/**
+#      serviceId: wc-client-search
+#      sensitiveHeaders: "*"
 
 #  routes:
 #    api-article:
