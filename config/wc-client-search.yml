@@ -2,7 +2,7 @@ server:
   port: 8083
 spring:
   application:
-    name: wc-client-user
+    name: wc-client-search
   profiles:
     active: dev
   elasticsearch:
