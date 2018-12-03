@@ -23,7 +23,7 @@ public class ApiFallbackProvider implements ZuulFallbackProvider{
     public String getRoute() {
         //设置熔断的服务名
         //如果是所有服务则设置为*
-        return "wc-client-user";
+        return "*";
     }
 
     @Override
