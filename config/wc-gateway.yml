@@ -28,7 +28,7 @@ zuul:
     socket-timeout-millis: 3000
   #路由规则
   routes:
-    api:
+    api-user:
       path: /api/user/**
       serviceId: wc-client-user
       #防止网关转发请求后session失效
