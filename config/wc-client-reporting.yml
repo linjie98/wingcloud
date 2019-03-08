@@ -1,0 +1,7 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: wc-client-reporting
+  profiles:
+    active: dev
