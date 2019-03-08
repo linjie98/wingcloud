@@ -1,0 +1,19 @@
+spring:
+  kafka:
+      bootstrap-servers: 192.168.43.200:9092
+      consumer:
+        group-id: con1
+        auto-offset-reset: latest
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  cloud:
+    config:
+      name: wc-client-reporting,wc-register,wc-redis,wc-database
+      label: master
+      discovery:
+        enabled: true
+        serviceId: wc-config
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
