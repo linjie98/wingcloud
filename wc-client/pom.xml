@@ -11,13 +11,15 @@
 
     <artifactId>wc-client</artifactId>
     <packaging>pom</packaging>
-    <description>翼云 业务服务</description>
+    <description>wingcloud业务服务</description>
 
     <modules>
         <module>wc-client-mail</module>
         <module>wc-client-user</module>
         <module>wc-client-search</module>
         <module>wc-client-admin</module>
+        <module>wc-client-calculation</module>
+        <module>wc-client-reporting</module>
     </modules>
 
     <dependencies>
@@ -44,6 +46,18 @@
             <groupId>com.netflix.hystrix</groupId>
             <artifactId>hystrix-javanica</artifactId>
             <version>1.5.12</version>
+        </dependency>
+        <!--spring-kafka监听-->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>1.3.9.RELEASE</version>
+        </dependency>
+        <!--socketio，实时主动推送-->
+        <dependency>
+            <groupId>com.corundumstudio.socketio</groupId>
+            <artifactId>netty-socketio</artifactId>
+            <version>1.7.7</version>
         </dependency>
     </dependencies>
 </project>
