@@ -37,6 +37,10 @@ zuul:
       path: /api/search/**
       serviceId: wc-client-search
       sensitiveHeaders: "*"
+    api-report:
+      path: /api/report/**
+      serviceId: wc-client-reporting
+      sensitiveHeaders: "*"
 
 #  routes:
 #    api-article:
