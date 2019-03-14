@@ -9,6 +9,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * 报表展示服务启动类
@@ -19,6 +20,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableHystrixDashboard
 @EnableAutoConfiguration
 @EnableCircuitBreaker
+@EnableScheduling //支持定时任务
 @ComponentScan(basePackages = "top.wingcloud")
 public class ReportApplication {
     public static void main(String[] args) {
