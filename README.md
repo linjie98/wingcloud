@@ -116,4 +116,16 @@ password: 123
 - 实现搜索引擎(ES)服务，多平台信息搜索
 
 
+## Self Description
+- 创作不易，欢迎star
+- 欢迎发Issues或者发邮件(xulinjie0105@gmail.com)
+- ash-ali(linjie)，2019年在校大三学生
+- 个人blog：https://www.imlinjie.top/
+- csdn：https://blog.csdn.net/w_linux
+
+
+## License
+wingcloud is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file.
+
+
 
