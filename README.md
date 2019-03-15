@@ -118,6 +118,7 @@ password: 123
 
 ## Self Description
 - 创作不易，欢迎star
+- 部分代码尚未提交，正在优化
 - 欢迎发Issues或者发邮件(xulinjie0105@gmail.com)
 - ash-ali(linjie)，2019年在校大三学生
 - 个人blog：https://www.imlinjie.top/
