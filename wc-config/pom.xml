@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>wc-config</artifactId>
-    <description>翼云 配置中心</description>
+    <description>wingcloud配置中心</description>
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
