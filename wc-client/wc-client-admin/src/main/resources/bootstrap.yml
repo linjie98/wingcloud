@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    config:
+      name: wc-client-admin,wc-register,wc-database,wc-redis
+      label: master
+      discovery:
+        enabled: true
+        serviceId: wc-config
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
