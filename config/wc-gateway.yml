@@ -34,8 +34,8 @@ zuul:
       #防止网关转发请求后session失效
       sensitiveHeaders: "*"
     api-search:
-      path: /api/search/**
-      serviceId: wc-client-search
+      path: /api/admin/**
+      serviceId: wc-client-admin
       sensitiveHeaders: "*"
     api-report:
       path: /api/report/**
