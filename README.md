@@ -1,6 +1,6 @@
 <div align="center">
   <a href="#">
-    <img src="wc-preview/logo_black128.png">
+    <img src="https://github.com/ash-ali/wingcloud-web/blob/master/images/logo_black128.png">
   </a>  
 </div>
 
