@@ -2,6 +2,8 @@ package top.wingcloud.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,7 @@ import java.util.*;
  * 报表展示服务控制器
  */
 @RestController
+@Api("报表展示接口")
 public class ReportController {
 
     private static Logger logger = LoggerFactory.getLogger(RestController.class);
@@ -57,7 +60,8 @@ public class ReportController {
      * 男女比例报表
      * @param record
      */
-    @GetMapping("/pushMessage")
+    @ApiOperation(value = "/getsexmsg",notes = "获取男女比例信息接口")
+    @GetMapping("/getsexmsg")
     @KafkaListener(topics = "sextopic")
     public void sexChart(ConsumerRecord<?, ?> record){
         /**
@@ -90,7 +94,8 @@ public class ReportController {
      * 地图报表
      * @param record
      */
-    @GetMapping("/pushMessage2")
+    @ApiOperation(value = "/getmapmsg",notes = "获取地图分布信息接口")
+    @GetMapping("/getmapmsg")
     @KafkaListener(topics = "mapcharttopic")
     public void mapChart(ConsumerRecord<?, ?> record){
         if (mapchart_map.size() == 1){
@@ -113,7 +118,8 @@ public class ReportController {
     /**
      * 词云
      */
-    @GetMapping("/pushMessage3")
+    @ApiOperation(value = "/getwordcloudmsg",notes = "获取词云信息信息接口")
+    @GetMapping("/getwordcloudmsg")
     @KafkaListener(topics = "wordcloudtopic")
     public void cloudChart(ConsumerRecord<?, ?> record){
         if (cloudchart_map.size() == 1){
@@ -137,6 +143,8 @@ public class ReportController {
      * 每隔2秒
      * @Async 可多线程
      */
+    @ApiOperation(value = "/getgrowmsg",notes = "获取总销售额环比增长速度信息接口")
+    @GetMapping("/getgrowmsg")
     @Async
     @Scheduled(cron = "0/5 * * * * *")
     public void growmoney(){
@@ -191,6 +199,8 @@ public class ReportController {
     /**
      * 总销售额
      */
+    @ApiOperation(value = "/getallmoneymsg",notes = "获取总销售额接口")
+    @GetMapping("/getallmoneymsg")
     @Async
     @Scheduled(cron = "0/5 * * * * *")
     public void allmoney(){

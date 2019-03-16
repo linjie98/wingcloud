@@ -20,7 +20,7 @@ public class DocumentationConfig implements SwaggerResourcesProvider{
     @Override
     public List<SwaggerResource> get() {
         List resources = new ArrayList<>();
-        resources.add(swaggerResource("搜索微服务接口", "/api/search/v2/api-docs", "1.0"));
+        resources.add(swaggerResource("报表展示微服务接口", "/api/report/v2/api-docs", "1.0"));
         resources.add(swaggerResource("用户微服务接口", "/api/user/v2/api-docs", "1.0"));
         return resources;
     }
