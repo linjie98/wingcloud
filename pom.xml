@@ -8,7 +8,7 @@
     <artifactId>WingCloud</artifactId>
     <packaging>pom</packaging>
     <version>v-1.0</version>
-    <description>翼云系统，引入公共依赖</description>
+    <description>wingcloud 系统，引入公共依赖</description>
     <modules>
         <module>wc-register</module>
         <module>wc-config</module>
