@@ -1,6 +1,6 @@
 <div align="center">
   <a href="#">
-    <img src="https://github.com/ash-ali/wingcloud-web/blob/master/images/logo_black128.png">
+    <img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/logo_black128.png">
   </a>  
 </div>
 
@@ -36,25 +36,25 @@ wingcloud-web：https://github.com/ash-ali/wingcloud-web
 ## Architecture
 
 #### 1、wingcloud 微服务架构图
-![image](https://github.com/ash-ali/wingcloud-web/blob/master/images/allarc.jpg)
+![image](https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/allarc.jpg)
 
 #### 2、wingcloud 计算服务架构图
-![image](https://github.com/ash-ali/wingcloud-web/blob/master/images/calarc.jpg)
+![image](https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/calarc.jpg)
 
 
 
 ## Preview
 
 <table><tr>
-    <td><img src="https://github.com/ash-ali/wingcloud-web/blob/master/images/preview1.png" border=0 width="300px" height="300px"></td>
-    <td><img src="https://github.com/ash-ali/wingcloud-web/blob/master/images/preview2.png" border=0 width="300px" height="300px"></td>
-    <td><img src="https://github.com/ash-ali/wingcloud-web/blob/master/images/preview3.png" border=0 width="300px" height="300px"></td>
+    <td><img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/preview1.png" border=0 width="300px" height="300px"></td>
+    <td><img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/preview2.png" border=0 width="300px" height="300px"></td>
+    <td><img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/preview3.png" border=0 width="300px" height="300px"></td>
 </tr></table>
 
 <table><tr>
-    <td><img src="https://github.com/ash-ali/wingcloud-web/blob/master/images/preview4.png" border=0 width="300px" height="300px"></td>
-    <td><img src="https://github.com/ash-ali/wingcloud-web/blob/master/images/preview5.png" border=0 width="300px" height="300px"></td>
-    <td><img src="https://github.com/ash-ali/wingcloud-web/blob/master/images/preview6.png" border=0 width="300px" height="300px"></td>
+    <td><img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/preview4.png" border=0 width="300px" height="300px"></td>
+    <td><img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/preview5.png" border=0 width="300px" height="300px"></td>
+    <td><img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/preview6.png" border=0 width="300px" height="300px"></td>
 </tr></table>
 
 
