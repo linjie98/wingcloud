@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>wc-client-user</artifactId>
-    <description>翼云用户服务</description>
+    <description>wingcloud用户服务</description>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
