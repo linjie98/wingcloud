@@ -62,6 +62,7 @@ wingcloud-web：https://github.com/ash-ali/wingcloud-web
 - wc-client 业务服务模块都在wc-client中，主要为了提供业务模块的公共依赖。
 - wc-client-calculation 业务服务模块之计算模块，基于 Flink 流计算框架，kafka、Redis作为主要Source源，MySQL、kafka作为主要sink源。
 - wc-client-user 业务服务模块之用户模块，主要基于Redis、MySQL实现单点登录。
+- wc-client-admin 后台管理服务，主要是提供运维数据监控，切换报表样式、类型。
 - wc-common 公共服务模块，主要提供Redis、cookie、信息加密、数据请求/响应的工具类。
 - wc-config 配置中心服务模块，对所有服务集中式配置，在config目录下。
 - wc-gateway 网关服务模块，主要通过zuul实现网关服务，其中含有鉴权、路由转发、负载均衡、swagger api生成。
