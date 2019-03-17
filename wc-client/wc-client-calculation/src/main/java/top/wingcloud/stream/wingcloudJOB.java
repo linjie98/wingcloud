@@ -19,9 +19,12 @@ import org.slf4j.LoggerFactory;
 import top.wingcloud.stream.apply.MapChartApply;
 import top.wingcloud.stream.apply.SexApply;
 import top.wingcloud.stream.apply.WordCloudApply;
+import top.wingcloud.stream.flatmap.MoneyFlatmap;
+import top.wingcloud.stream.flatmap.ShopFlatmap;
 import top.wingcloud.stream.map.MapChartMap;
 import top.wingcloud.stream.map.SexMap;
 import top.wingcloud.stream.map.WordCloudMap;
+import top.wingcloud.util.WCMysqlSink;
 import top.wingcloud.util.WCRedisSource;
 import top.wingcloud.watermark.WCWatermark;
 
@@ -63,8 +66,8 @@ public class wingcloudJOB {
         //指定topic source
         String sourcetopic = "testsource";
         Properties source_properties = new Properties();
-        source_properties.setProperty("bootstrap.servers","192.168.43.201:9092");
-        source_properties.setProperty("group.id","con1");
+        source_properties.setProperty("bootstrap.servers", "192.168.43.201:9092");
+        source_properties.setProperty("group.id", "con1");
 
         FlinkKafkaConsumer011<String> consumer011 = new FlinkKafkaConsumer011<>(sourcetopic, new SimpleStringSchema(), source_properties);
 
@@ -75,7 +78,7 @@ public class wingcloudJOB {
         /**
          * 销售额Redis source
          */
-        //DataStream<HashMap<String, String>> money_redissourcedata = env.addSource(new WCRedisSource("wc_id_money")).broadcast();
+        DataStream<HashMap<String, String>> money_redissourcedata = env.addSource(new WCRedisSource("wc_id_money")).broadcast();
         /**
          * 实时订单数据Redis source (获取id : 商品名称)
          */
@@ -97,8 +100,6 @@ public class wingcloudJOB {
                 .apply(new SexApply());
 
 
-
-
         ////////////////////////////////////
 
 
@@ -116,18 +117,13 @@ public class wingcloudJOB {
                 .apply(new MapChartApply());
 
 
-
-
-
         ////////////////////////////////////
 
 
         /**
          * 3、实时销售额
          */
-        //SingleOutputStreamOperator<String> moneydata = kafkasourcedata.connect(money_redissourcedata).flatMap(new MoneyFlatmap());
-
-
+        SingleOutputStreamOperator<String> moneydata = kafkasourcedata.connect(money_redissourcedata).flatMap(new MoneyFlatmap());
 
 
         ////////////////////////////////////
@@ -153,12 +149,10 @@ public class wingcloudJOB {
          * 5、实时订单数据
          * 商品id  商品名称  商品类别
          */
-        //SingleOutputStreamOperator<String> shopdata = kafkasourcedata.connect(shop_redissourcedata).flatMap(new ShopFlatmap());
-
+        SingleOutputStreamOperator<String> shopdata = kafkasourcedata.connect(shop_redissourcedata).flatMap(new ShopFlatmap());
 
 
         ////////////////////////////////////
-
 
 
         /**
@@ -167,15 +161,15 @@ public class wingcloudJOB {
         String sex_topic = "sextopic";
         String mapchart_topic = "mapcharttopic";
         String wordcloud_topic = "wordcloudtopic";
-        //String shop_topic = "shoptopic";
+        String shop_topic = "shoptopic";
 
         /**
          * kafka 配置
          */
         Properties properties = new Properties();
-        properties.setProperty("bootstrap.servers","192.168.43.201:9092");
+        properties.setProperty("bootstrap.servers", "192.168.43.201:9092");
         //设置事务超时时间15分分钟，kafka事务超时时间默认15分钟，而FlinkKafkaProducer011事务超时时间默认1小时，所以将其1小时改为15分钟(其事务超时时间不能大于kafka的，不然会报错)
-        properties.setProperty("transaction.timeout.ms",60000*15+"");
+        properties.setProperty("transaction.timeout.ms", 60000 * 15 + "");
 
         /**
          * 获取kafka 生产者FlinkKafkaProducer011
@@ -183,7 +177,7 @@ public class wingcloudJOB {
         FlinkKafkaProducer011<String> sex_FlinkKafkaProducer = new FlinkKafkaProducer011<>(sex_topic, new KeyedSerializationSchemaWrapper<String>(new SimpleStringSchema()), properties, FlinkKafkaProducer011.Semantic.EXACTLY_ONCE);
         FlinkKafkaProducer011<String> mapchart_FlinkKafkaProducer = new FlinkKafkaProducer011<>(mapchart_topic, new KeyedSerializationSchemaWrapper<String>(new SimpleStringSchema()), properties, FlinkKafkaProducer011.Semantic.EXACTLY_ONCE);
         FlinkKafkaProducer011<String> wordcloud_FlinkKafkaProducer = new FlinkKafkaProducer011<>(wordcloud_topic, new KeyedSerializationSchemaWrapper<String>(new SimpleStringSchema()), properties, FlinkKafkaProducer011.Semantic.EXACTLY_ONCE);
-        //FlinkKafkaProducer011<String> shop_FlinkKafkaProducer = new FlinkKafkaProducer011<>(shop_topic, new KeyedSerializationSchemaWrapper<String>(new SimpleStringSchema()), properties, FlinkKafkaProducer011.Semantic.EXACTLY_ONCE);
+        FlinkKafkaProducer011<String> shop_FlinkKafkaProducer = new FlinkKafkaProducer011<>(shop_topic, new KeyedSerializationSchemaWrapper<String>(new SimpleStringSchema()), properties, FlinkKafkaProducer011.Semantic.EXACTLY_ONCE);
 
 
         /**
@@ -192,8 +186,8 @@ public class wingcloudJOB {
         sexapplydata.addSink(sex_FlinkKafkaProducer);
         mapchartapplydata.addSink(mapchart_FlinkKafkaProducer);
         wordcloudapplydata.addSink(wordcloud_FlinkKafkaProducer);
-        //shopdata.addSink(shop_FlinkKafkaProducer);
-        //moneydata.addSink(new WCMysqlSink()); // 销售额sink到mysql
+        shopdata.addSink(shop_FlinkKafkaProducer);
+        moneydata.addSink(new WCMysqlSink()); // 销售额sink到mysql
 
 
         env.execute("wingcloud job running!");
