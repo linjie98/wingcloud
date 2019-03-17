@@ -35,8 +35,6 @@ public class ReportController {
 
     @Autowired
     private IReportService iReportService;
-//    @Autowired
-//    private SocketioService socketioService;
 
     private static Long lastmoney = 0l; //记录上一次的总销售额
 
@@ -58,17 +56,18 @@ public class ReportController {
 
     /**
      * 男女比例报表
+     *
      * @param record
      */
-    @ApiOperation(value = "/getsexmsg",notes = "获取男女比例信息接口")
+    @ApiOperation(value = "/getsexmsg", notes = "获取男女比例信息接口")
     @GetMapping("/getsexmsg")
     @KafkaListener(topics = "sextopic")
-    public void sexChart(ConsumerRecord<?, ?> record){
+    public void sexChart(ConsumerRecord<?, ?> record) {
         /**
          * 如果map中有数据则清空
          * list也清空
          */
-        if (sex_map.size() == 1){
+        if (sex_map.size() == 1) {
             sex_map.clear();
             sex_list.clear();
         }
@@ -80,11 +79,11 @@ public class ReportController {
         //将数据写入list
         //因为前台报表需要男女比例，所以需要list为2
         //第一次数据可能为脏数据
-        sex_list.add(new Gender(jsonObject.getString("usergender"),jsonObject.getLong("count")));
+        sex_list.add(new Gender(jsonObject.getString("usergender"), jsonObject.getLong("count")));
         System.err.println(sex_list);
-        if (sex_list.size() == 2){
-            sex_map.put("list",sex_list);
-            logger.info("【男女比例】向前台发送数据："+sex_map);
+        if (sex_list.size() == 2) {
+            sex_map.put("list", sex_list);
+            logger.info("【男女比例】向前台发送数据：" + sex_map);
             //向客户端发送消息,第一个参数与socket.on接收的参数相同
             socketioService.pushArr("connect_msg", sex_map);
         }
@@ -92,13 +91,14 @@ public class ReportController {
 
     /**
      * 地图报表
+     *
      * @param record
      */
-    @ApiOperation(value = "/getmapmsg",notes = "获取地图分布信息接口")
+    @ApiOperation(value = "/getmapmsg", notes = "获取地图分布信息接口")
     @GetMapping("/getmapmsg")
     @KafkaListener(topics = "mapcharttopic")
-    public void mapChart(ConsumerRecord<?, ?> record){
-        if (mapchart_map.size() == 1){
+    public void mapChart(ConsumerRecord<?, ?> record) {
+        if (mapchart_map.size() == 1) {
             mapchart_map.clear();
             mapchart_list.clear();
         }
@@ -107,22 +107,22 @@ public class ReportController {
         //获取kafka中的监听数据 并处理为json
         String value = (String) record.value();
         JSONObject jsonObject = JSON.parseObject(value);
-        mapchart_list.add(new MaporCloudChartpojo(jsonObject.getString("userarea"),jsonObject.getLong("count")));
-        mapchart_map.put("list",mapchart_list);
+        mapchart_list.add(new MaporCloudChartpojo(jsonObject.getString("userarea"), jsonObject.getLong("count")));
+        mapchart_map.put("list", mapchart_list);
         //System.err.println(mapchart_map);
-        logger.info("【地图分布】发送给前台的数据："+mapchart_map);
-        socketioService.pushArr("connect_msg_map",mapchart_map);
+        logger.info("【地图分布】发送给前台的数据：" + mapchart_map);
+        socketioService.pushArr("connect_msg_map", mapchart_map);
     }
 
 
     /**
      * 词云
      */
-    @ApiOperation(value = "/getwordcloudmsg",notes = "获取词云信息信息接口")
+    @ApiOperation(value = "/getwordcloudmsg", notes = "获取词云信息信息接口")
     @GetMapping("/getwordcloudmsg")
     @KafkaListener(topics = "wordcloudtopic")
-    public void cloudChart(ConsumerRecord<?, ?> record){
-        if (cloudchart_map.size() == 1){
+    public void cloudChart(ConsumerRecord<?, ?> record) {
+        if (cloudchart_map.size() == 1) {
             cloudchart_map.clear();
             cloudchart_list.clear();
         }
@@ -130,10 +130,10 @@ public class ReportController {
         //获取kafka中的监听数据 并处理为json
         String value = (String) record.value();
         JSONObject jsonObject = JSON.parseObject(value);
-        cloudchart_list.add(new MaporCloudChartpojo(jsonObject.getString("shoptype"),jsonObject.getLong("count")));
-        cloudchart_map.put("list",cloudchart_list);
-        logger.info("【词云】发送到前台的数据 ："+cloudchart_map);
-        socketioService.pushArr("connect_msg_cloud",cloudchart_map);
+        cloudchart_list.add(new MaporCloudChartpojo(jsonObject.getString("shoptype"), jsonObject.getLong("count")));
+        cloudchart_map.put("list", cloudchart_list);
+        logger.info("【词云】发送到前台的数据 ：" + cloudchart_map);
+        socketioService.pushArr("connect_msg_cloud", cloudchart_map);
 
     }
 
@@ -141,24 +141,25 @@ public class ReportController {
     /**
      * 获得总销售额环比增长速度
      * 每隔2秒
+     *
      * @Async 可多线程
      */
-    @ApiOperation(value = "/getgrowmsg",notes = "获取总销售额环比增长速度信息接口")
+    @ApiOperation(value = "/getgrowmsg", notes = "获取总销售额环比增长速度信息接口")
     @GetMapping("/getgrowmsg")
     @Async
     @Scheduled(cron = "0/5 * * * * *")
-    public void growmoney(){
+    public void growmoney() {
 
-        if (grow_map.size() == 1){
+        if (grow_map.size() == 1) {
             grow_map.clear();
             grow_list.clear();
         }
 
         Double growthrate = 0.0;
-        logger.info("获取总销售额："+iReportService.getMoney());
+        logger.info("获取总销售额：" + iReportService.getMoney());
         Long currently = iReportService.getMoney();
 
-        logger.info("上一次的总销售额："+lastmoney);
+        logger.info("上一次的总销售额：" + lastmoney);
 
         //获得当前时间
         SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");//设置日期格式
@@ -170,27 +171,27 @@ public class ReportController {
         /**
          * lastmoney = 0是第一次的情况，这里为了避开第一次计算分母为0的情况
          */
-        if (lastmoney!=0){
-            growthrate = (currently.doubleValue() - lastmoney.doubleValue()) /lastmoney.doubleValue();
-            System.err.println("100前"+growthrate);
-            growthrate = growthrate*100.0;
-            System.err.println("100后"+growthrate);
+        if (lastmoney != 0) {
+            growthrate = (currently.doubleValue() - lastmoney.doubleValue()) / lastmoney.doubleValue();
+            System.err.println("100前" + growthrate);
+            growthrate = growthrate * 100.0;
+            System.err.println("100后" + growthrate);
             BigDecimal bg = new BigDecimal(growthrate);
             growthrate = bg.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue();
-        }else {
+        } else {
             growthrate = 100.0;
         }
 
-        logger.info("环比增长速度："+growthrate);
+        logger.info("环比增长速度：" + growthrate);
         lastmoney = currently;
 
-        logger.info("上一次的总销售额变更："+lastmoney);
+        logger.info("上一次的总销售额变更：" + lastmoney);
 
-        grow_list.add(new GroundMoney(date,growthrate));
+        grow_list.add(new GroundMoney(date, growthrate));
 
-        if (grow_list.size() == 3){
-            grow_map.put("list",grow_list);
-            logger.info("【环比增长速度】向前台发送数据："+grow_map);
+        if (grow_list.size() == 3) {
+            grow_map.put("list", grow_list);
+            logger.info("【环比增长速度】向前台发送数据：" + grow_map);
             socketioService.pushArr("connect_msg_grow", grow_map);
         }
 
@@ -199,17 +200,37 @@ public class ReportController {
     /**
      * 总销售额
      */
-    @ApiOperation(value = "/getallmoneymsg",notes = "获取总销售额接口")
+    @ApiOperation(value = "/getallmoneymsg", notes = "获取总销售额接口")
     @GetMapping("/getallmoneymsg")
     @Async
     @Scheduled(cron = "0/5 * * * * *")
-    public void allmoney(){
+    public void allmoney() {
         SocketioService socketioService = new SocketioService();
-        socketioService.pushArr("connect_msg_allmoney",iReportService.getMoney());
+        socketioService.pushArr("connect_msg_allmoney", iReportService.getMoney());
     }
 
 
+    /**
+     * 订单数据滚动流
+     */
+    @ApiOperation(value = "/getshoprollmsg", notes = "获取订单数据信息接口")
+    @GetMapping("/getshoprollmsg")
+    @KafkaListener(topics = "shoptopic")
+    public void shoprollChart(ConsumerRecord<?, ?> record) {
+        if (shoproll_map.size() == 1) {
+            shoproll_map.clear();
+            shoproll_list.clear();
+        }
+        SocketioService socketioService = new SocketioService();
+        //获取kafka中的监听数据 并处理为json
+        String value = (String) record.value();
+        JSONObject jsonObject = JSON.parseObject(value);
+        shoproll_list.add(new ShopRoll(jsonObject.getString("shopid"),jsonObject.getString("shopname"),jsonObject.getString("shoptype")));
+        shoproll_map.put("list", shoproll_list);
+        logger.info("【订单数据滚动流】发送到前台的数据 ：" + shoproll_map);
+        socketioService.pushArr("connect_msg_roll", shoproll_map);
 
+    }
 
 
 }
