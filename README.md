@@ -8,7 +8,7 @@
 
 <div align="center">
 
-![](https://img.shields.io/badge/release-v1.0.0-blue.svg)
+[![](https://img.shields.io/badge/release-v1.0.0-blue.svg)](https://github.com/ash-ali/wingcloud/releases/tag/v1.0.0)
 ![](https://img.shields.io/badge/build-passing-orange.svg)
 ![](https://img.shields.io/badge/license-Apache--2.0-brighhtgreen.svg)
 [![](https://img.shields.io/badge/wiki-reference-inactive.svg)](https://github.com/ash-ali/wingcloud/wiki)
