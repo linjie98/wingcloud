@@ -9,10 +9,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/ash-ali/WingCloud.git #配置git仓库地址
+          uri: https://github.com/ash-ali/myconf.git
           searchPaths: config #配置仓库路径
-          username: ash-ali #访问git仓库的用户名
-          password: xlj19980105 #访问git仓库的用户密码
+          username:  #访问git仓库的用户名
+          password:  #访问git仓库的用户密码
       label: master #配置仓库的分支
 eureka:
   instance:
