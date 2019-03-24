@@ -94,7 +94,7 @@ $ git clone https://github.com/ash-ali/wingcloud-web.git
 
 4.启动服务
 ```text
-wc-register -> wc-config -> wc-client-user -> wc-client-reporting ->wc-gateway
+wc-register -> wc-config -> wc-client-user -> wc-client-reporting -> wc-client-admin -> wc-gateway
 ```
 
 5.运行wingcloud-web
