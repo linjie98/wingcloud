@@ -36,10 +36,10 @@ wingcloud-web：https://github.com/ash-ali/wingcloud-web
 ## Architecture
 
 #### 1、wingcloud 微服务架构图
-![image](https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/allarc.jpg)
+![image](https://github.com/ash-ali/wingcloud/blob/master/img/allarc.jpg)
 
 #### 2、wingcloud 计算服务架构图
-![image](https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/calarc.jpg)
+![image](hhttps://github.com/ash-ali/wingcloud/blob/master/img/calarc.jpg)
 
 
 
