@@ -1,6 +1,6 @@
 <div align="center">
   <a href="#">
-    <img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/logo_black128.png">
+    <img src="https://github.com/ash-ali/wingcloud/blob/master/img/logo.png">
   </a>  
 </div>
 
@@ -46,15 +46,15 @@ wingcloud-web：https://github.com/ash-ali/wingcloud-web
 ## Preview
 
 <table><tr>
-    <td><img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/preview1.png" border=0 width="300px" height="300px"></td>
-    <td><img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/preview2.png" border=0 width="300px" height="300px"></td>
-    <td><img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/preview3.png" border=0 width="300px" height="300px"></td>
+    <td><img src="https://github.com/ash-ali/wingcloud/blob/master/img/controller.JPG" border=0 width="300px" height="300px"></td>
+    <td><img src="https://github.com/ash-ali/wingcloud/blob/master/img/index.JPG" border=0 width="300px" height="300px"></td>
+    <td><img src="https://github.com/ash-ali/wingcloud/blob/master/img/login.JPG" border=0 width="300px" height="300px"></td>
 </tr></table>
 
 <table><tr>
-    <td><img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/preview4.png" border=0 width="300px" height="300px"></td>
-    <td><img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/preview5.png" border=0 width="300px" height="300px"></td>
-    <td><img src="https://wingcloud-1257431311.cos.ap-chengdu.myqcloud.com/preview6.png" border=0 width="300px" height="300px"></td>
+    <td><img src="https://github.com/ash-ali/wingcloud/blob/master/img/logo.png" border=0 width="300px" height="300px"></td>
+    <td><img src="https://github.com/ash-ali/wingcloud/blob/master/img/look.JPG" border=0 width="300px" height="300px"></td>
+    <td><img src="https://github.com/ash-ali/wingcloud/blob/master/img/search.JPG" border=0 width="300px" height="300px"></td>
 </tr></table>
 
 
