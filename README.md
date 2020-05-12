@@ -16,9 +16,15 @@
 </div>
 
 ---
+
+wingcloud项目演示：https://www.bilibili.com/video/BV1Ut4y1m7Gk
+
+
+---
 ## Introductions
 wingcloud 是基于微服务架构的实时计算展示平台。作为实时计算平台，wingcloud 又采用 Flink 流计算处理框架来实现高吞吐、低延迟的性能要求。
 wingcloud-web：https://github.com/ash-ali/wingcloud-web
+
 
 
 
@@ -120,15 +126,13 @@ password: 123
 
 ## Self Description
 - 创作不易，欢迎star
-- 部分代码尚未提交，正在优化
-- 欢迎发Issues或者发邮件(xulinjie0105@gmail.com)
-- ash-ali(linjie)，2019年在校大三学生
+- 欢迎发Issues或者发邮件(932834897@qq.com)
+- ash-ali(xulinjie)，2020年在校大四学生
 - 个人blog：https://www.imlinjie.top/
 - csdn：https://blog.csdn.net/w_linux
 
 
 ## License
 wingcloud is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file.
-
 
 
