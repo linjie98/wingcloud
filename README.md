@@ -127,7 +127,7 @@ password: 123
 ## Self Description
 - 创作不易，欢迎star
 - 欢迎发Issues或者发邮件(932834897@qq.com)
-- ash-ali(xulinjie)2021年在校研一学生，Alina-ya(xiongjiao)2021年大四毕业生
+- ash-ali(xulinjie)2022年在校研二学生，Alina-ya(xiongjiao)2022年杭州在职测开
 
 
 ## License
